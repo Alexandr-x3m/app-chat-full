@@ -1,0 +1,55 @@
+@import '../app'
+
+
+.container
+    display: flex
+    position: relative
+    max-width: 507px
+    margin-bottom: 16px
+
+.avatar_user
+    position: absolute
+    bottom: 0
+    left: 0
+    height: 36px
+    img
+        width: 36px
+        height: 36px
+    &:hover
+        cursor: pointer
+
+.message_container
+    position: relative
+    left: 64px
+    max-width: 460px
+    padding: 0 12px
+    background: $prim-back
+    border-radius: 6px
+    text-align: left
+    &::before
+        position: absolute
+        bottom: 0px
+        left: -6px
+        content: ''
+        width: 30px
+        height: 16px
+        transform: skew(-64deg)
+        background: $prim-back
+    .author
+        font-size: $txt-10px
+        font-weight: 600
+        color: $prim-color
+        margin-bottom: 4px
+        &:hover
+            cursor: pointer
+            text-decoration: underline
+    .text
+        margin: 0 36px 12px 0
+        font-size: $txt-10px
+        font-weight: 400
+    .time
+        position: absolute
+        bottom: 8px
+        right: 8px
+        font-size: $txt-8px
+        color: $txt-60-color

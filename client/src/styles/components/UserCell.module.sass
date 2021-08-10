@@ -1,0 +1,56 @@
+@import '../app'
+
+.container
+    +transitionDuration(.4s)
+    display: flex
+    position: relative
+    padding: 8px 12px 0
+    &:hover
+        cursor: pointer
+        background: $txt-40-color
+        .info
+            padding-bottom: 9px
+            border-bottom: none
+
+.avatar
+    position: relative
+    width: 48px
+    height: 48px
+    margin-right: 16px
+    img
+        width: inherit
+        height: inherit
+
+.info
+    display: flex
+    flex-direction: column
+    position: relative
+    width: 100%
+    padding-bottom: 8px
+    text-align: left
+    border-bottom: 1px solid $txt-40-color
+
+.name
+    font-size: $txt_12px
+    font-weight: 600
+    margin-bottom: 4px
+
+.status
+    font-size: $txt_10px
+    padding-left: 12px
+    &::before
+        position: absolute
+        top: 34px
+        left: 0
+        content: ''
+        width: 6px
+        height: 6px
+        border-radius: 50%
+
+.stat_online
+    &::before
+        background: green
+
+.stat_offline
+    &::before
+        background: $txt-40-color

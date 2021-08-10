@@ -1,0 +1,33 @@
+@import '../../app'
+
+.container
+    position: relative 
+    max-width: 240px
+    margin: 32px auto 0
+
+.input
+    padding: 8px 12px
+    background: $prim-back-60
+    border: 1px solid #000
+    border-radius: 6px
+    box-shadow: inset 0px 0px 5px #000000
+    outline: none
+    font-size: $txt-12px
+    color: $txt-color
+    &:focus
+        ~.label
+            top: -24px
+            font-size: $txt-10px
+
+.label
+    +transitionDuration(0.2s)
+    position: absolute
+    top: 6px
+    left: 0
+    padding-left: 12px
+    font-size: $txt-12px
+    color: $prim-color
+
+.not_empty
+    top: -24px
+    font-size: $txt-10px
