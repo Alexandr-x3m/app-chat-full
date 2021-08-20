@@ -5,8 +5,12 @@ import s from '../../styles/containers/Form.module.sass'
 import TextInput from '../../components/Inputs/Text'
 import Button from '../../components/Inputs/Button'
 import { debug } from 'console'
+import { useContext } from 'react'
+import { AuthContext } from '../../context/AuthContext'
 
 const AuthForm: React.FC = () => {
+
+    const auth = useContext(AuthContext)
 
     const [login, setLogin] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -38,8 +42,8 @@ const AuthForm: React.FC = () => {
                     return setErrorText('Пользователь с данным именем не найдем')
                 }
                 if (res.status === 200) {
-                    localStorage.setItem('user_id', res.data.id)
-                    localStorage.setItem('login', res.data.login)
+                    debugger
+                    auth.logIn()
                 }
             })
             .catch(err => {
@@ -49,6 +53,8 @@ const AuthForm: React.FC = () => {
     }
 
     return (
+        <>
+        
         <form 
             onSubmit={handleSubmit}
             className={s.form}
@@ -75,6 +81,7 @@ const AuthForm: React.FC = () => {
             />
 
         </form>
+        </>
     )
 }
 

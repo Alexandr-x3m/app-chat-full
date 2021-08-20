@@ -76,7 +76,14 @@ auth.post(
 
 //api/auth/login
 auth.post('/register', async (req, res) => {
+    console.log(req.body)
 
+    try {
+        console.log(req.body)
+        if (req.body) return res.sendStatus(400)
+    } catch (e) {
+
+    }
 })
 
 module.exports = auth
