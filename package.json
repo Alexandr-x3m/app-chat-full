@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js",
-    "client": "npm run start --prefix app-chat",
+    "server": "nodemon --trace-warnings app.js",
+    "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
     "mssql": "^7.2.0",
+    "socket.io": "^4.2.0",
     "websocket": "^1.0.34"
   },
   "devDependencies": {

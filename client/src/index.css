@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.user_status {
+  position: absolute;
+  font-size: 24px;
+  color: #fff;
+}
+  

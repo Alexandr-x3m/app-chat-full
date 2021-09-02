@@ -1,10 +1,11 @@
 
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import axios from "axios"
 
 import s from '../../styles/containers/Form.module.sass'
 import Button from "../../components/Inputs/Button"
 import TextInput from "../../components/Inputs/Text"
+import { AuthContext } from "../../context/Auth.Context"
 
 export const RegisterForm: React.FC = () => {
 
@@ -15,10 +16,12 @@ export const RegisterForm: React.FC = () => {
     const [email, setEmail] = useState<string>('')
     const [errorText, setErrorText] = useState<string>('')
 
+    const auth = useContext(AuthContext)
+
 
     let handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        debugger
+
         console.log('регестрируеся')
 
         if (password !== repeatPassword) return setErrorText('Пароли не сопадают')
@@ -31,8 +34,8 @@ export const RegisterForm: React.FC = () => {
         }
 
         axios({
-            method: 'post',
-            url: process.env.HOST_SRV,
+            method: 'POST',
+            url: 'http://192.168.0.51:3001/api/auth/register',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -45,13 +48,15 @@ export const RegisterForm: React.FC = () => {
                     return setErrorText('Пользователь с данным именем не найдем')
                 }
                 if (res.status === 200) {
-                    localStorage.setItem('user_id', res.data.id)
-                    localStorage.setItem('login', res.data.login)
+                    let { message, id, VerifyHash, Login } = res.data
+
+                    setErrorText(message)
+                    auth.logIn(id, VerifyHash, Login)
                 }
             })
             .catch(err => {
-                debugger
-                console.log(err)})
+                setErrorText(err.response.data.message)
+            })
 
     }
 

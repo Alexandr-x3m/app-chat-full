@@ -5,22 +5,29 @@ import s from '../../styles/components/Inputs/Button.module.sass'
 
 interface Button {
     name: string,
-    onClick: Function
+    onClick: Function,
+    additClass?: string
 }
 
-const Button: React.FC<Button> = ({ name, onClick }) => {
+const Button: React.FC<Button> = ({ name, onClick, additClass, ...props }) => {
 
-    
+
 
     return (
-        <div className={s.container}> 
-            <input 
-                type="button"
-                className={s.button} 
-                value={name}
-                onClick={(e: React.MouseEvent<HTMLInputElement>) => onClick(e)}
-            />
-        </div>
+        <label htmlFor={`button_${name}`} >
+            <div className={s.container + ' ' + additClass}>
+                <input
+                    id={`button_${name}`}
+                    type="button"
+                    className={s.button}
+                    value={name}
+                    onClick={(e: React.MouseEvent<HTMLInputElement>) => onClick(e)}
+                />
+                <div className={s.children}>
+                    {props.children}
+                </div>
+            </div>
+        </label>
     )
 }
 

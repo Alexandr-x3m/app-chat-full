@@ -1,0 +1,51 @@
+@import '../app'
+
+.container
+    position: absolute
+    top: 0
+    height: 48px
+    width: 100%
+    background: black
+
+.content
+    display: flex
+    justify-content: flex-end
+    position: relative
+    margin: auto
+    max-width: 1200px
+
+.profile_container
+    +transDur(.2s)
+    display: flex
+    height: 32px
+    padding: 4px 2px
+    margin-top: 4px
+    border-radius: 4px
+
+.profile_auth
+    display: flex
+    &:hover
+        background: $txt-40-color
+        cursor: pointer
+
+.avatar
+    width: 32px
+    height: 32px
+
+.additClass
+    width: 32px
+    height: 32px
+    margin-left: 6px !important 
+
+.logout_icon
+    position: relative
+    top: 4px
+    width: 24px
+    height: 24px
+
+.user_name
+    margin: 0
+    font-size: $txt-12px
+    color: $txt-color
+    line-height: 18px
+    margin: 7px 0 0 6px
