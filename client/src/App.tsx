@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom'
+import { AuthContext } from './context/AuthContext'
+import { useAuth } from './hooks/auth.hooks'
 
 import { useRoutes } from './routes'
 import dotenv from 'dotenv'
 import './styles/App.css'
-import { AuthContext } from './context/Auth.Context';
-import { useAuth } from './hooks/auth.hooks';
 import { Header } from './components/Header/Header';
 import { useEffect } from 'react';
 

@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import s from '../../styles/components/Header.module.sass'
 
 
-import { AuthContext } from '../../context/Auth.Context'
+import { AuthContext } from '../../context/AuthContext'
 import { NavLink, Redirect } from 'react-router-dom'
 import Button from '../Inputs/Button'
 

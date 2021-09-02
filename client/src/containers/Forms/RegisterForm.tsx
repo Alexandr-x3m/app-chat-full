@@ -5,7 +5,7 @@ import axios from "axios"
 import s from '../../styles/containers/Form.module.sass'
 import Button from "../../components/Inputs/Button"
 import TextInput from "../../components/Inputs/Text"
-import { AuthContext } from "../../context/Auth.Context"
+import { AuthContext } from "../../context/AuthContext"
 
 export const RegisterForm: React.FC = () => {
 

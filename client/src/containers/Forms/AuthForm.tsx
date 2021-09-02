@@ -4,16 +4,15 @@ import axios from 'axios'
 import s from '../../styles/containers/Form.module.sass'
 import TextInput from '../../components/Inputs/Text'
 import Button from '../../components/Inputs/Button'
-import { AuthContext } from '../../context/Auth.Context'
+import { AuthContext } from '../../context/AuthContext'
 
 const AuthForm: React.FC = () => {
+
+    const auth = useContext(AuthContext)
 
     const [login, setLogin] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [errorText, setErrorText] = useState<string>('')
-
-    const auth = useContext(AuthContext)
-
 
     let handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -48,6 +47,8 @@ const AuthForm: React.FC = () => {
     }
 
     return (
+        <>
+        
         <form 
             onSubmit={handleSubmit}
             className={s.form}
@@ -74,6 +75,7 @@ const AuthForm: React.FC = () => {
             />
 
         </form>
+        </>
     )
 }
 
