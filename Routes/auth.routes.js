@@ -2,8 +2,9 @@ const axios = require('axios')
 const { check, validationResult } = require('express-validator')
 const bcrypt = require('bcrypt')
 const { Router } = require('express')
-const auth = Router()
 
+
+const auth = Router()
 
 //api/auth/register
 auth.post(
@@ -24,7 +25,7 @@ auth.post(
                     errors: errors.array()
                 })
             ) */
-            if (!req.body.login || !req.body.password) return res.status(400).json({ message: 'Неверно указан логин или пароль' })
+            if (!req.body.login || !req.body.password) return res.status(400)
 
             const { login,
                 password,
