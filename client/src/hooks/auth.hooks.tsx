@@ -31,6 +31,7 @@ export const useAuth = () => {
     }, [])
 
     const logOut = useCallback(() => {
+        debugger
         setVerifyHash(null)
         setUserId(null)
         setUserLogin(null)
@@ -55,7 +56,6 @@ export const useAuth = () => {
     }, [])
 
     useEffect(() => {
-        debugger
         let data = localStorage.getItem(storageName)
 
         if (data) {

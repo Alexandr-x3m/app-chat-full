@@ -11,13 +11,13 @@ interface Button {
 
 const Button: React.FC<Button> = ({ name, onClick, additClass, ...props }) => {
 
-
+    let id = name === '' ? Math.floor(Math.random()*100) : name
 
     return (
-        <label htmlFor={`button_${name}`} >
+        <label htmlFor={`button_${id}`} >
             <div className={s.container + ' ' + additClass}>
                 <input
-                    id={`button_${name}`}
+                    id={`button_${id}`}
                     type="button"
                     className={s.button}
                     value={name}

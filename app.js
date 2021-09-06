@@ -21,14 +21,18 @@ dotenv.config()
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use('/api/auth', require('./Routes/auth.routes'))
 
+// test page
 app.get('/', (req, res) => {
   console.log('Home Page')
   res.send('Home Page')
 })
 
-// chats
+//API routes
+
+//authorization
+app.use('/api/auth', require('./Routes/auth.routes'))
+//chat rooms
 app.use('/api/rooms', require('./Routes/rooms.routes'))
 
 

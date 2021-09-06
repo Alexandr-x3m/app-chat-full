@@ -45,22 +45,22 @@ rooms.get('/rooms', async (req, res) => {
 
 // api/rooms/create-room
 rooms.post('/create-room', (req, res) => {
-
+  console.log(req.body)
     try {
 
-        if (!req.body.author || !req.body.name) return res.status(400)
+        if (!req.body.userId || !req.body.nameRoom) return res.status(400)
 
-        const { author, name } = req.body
+        const { userId, nameRoom } = req.body
 
         axios({
-            method: 'post',
-            url: process.env.HOST_SRV,
+            method: 'POST',
+            url: process.env.DB_HOST,
             headers: {'Content-Type': 'application/json'},
             data: {
                 query: `mutation MyMutation {
                     insert_Chat_Rooms(objects: {
-                        Author: "${author}", 
-                        Name: "${name}", 
+                        Author: "${userId}", 
+                        Name: "${nameRoom}", 
                         Avatar: "null"
                     }) {
                       affected_rows
@@ -72,7 +72,7 @@ rooms.post('/create-room', (req, res) => {
                   }`
             }
         })
-            .thne(response => {
+            .then(response => {
                 let result = response.data.data.insert_Chat_Rooms.affected_rows
 
                 if (result === 1) {
