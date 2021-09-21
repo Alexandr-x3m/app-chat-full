@@ -20,6 +20,10 @@ export const CreateRoomForm: React.FC = () => {
         })
             .then(res => {
                 debugger
+                if (res.status === 200) {
+
+                    let { Name, id } = res.data
+                }
             })
     }
 
